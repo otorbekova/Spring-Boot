@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+</head>
+<body>
+<form th:method="post" th:action="@{/auto/regist}" th:object="${keyReg}">
+    <label for="Name">Enter name user:</label>
+    <input type="text" th:field="*{userName}" id="Name">
+    <div style="color:red"th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}" > name error</div>
+    <br/>
+    <label for="years">Enter your birthday (14.04.2023):</label>
+    <input type="text" th:field="*{dateOfBirth}" id="years">
+    <div style="color: red" th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}">Birth error</div>
+    <br/>
+    <label for="password">Enter password:</label>
+    <input type="text" th:field="*{password}" id="password">
+    <div style="color:red" th:field="${#fields.hasErrors('password')}" th:errors="*{password}">Password error</div>
+    <br/>
+    <input type="submit" value="Registration">
+
+
+</form>
+
+
+</body>
+</html>
